@@ -51,9 +51,11 @@ pipeline {
                 try {
                    // -- Download GIT Code 
                     echo "Downloading GIT Code from: ${JOB_GIT_URL}. Branch: ${JOB_GIT_BRANCH}"
-                    checkout([$class: "GitSCM", branches: [[name: "${JOB_GIT_BRANCH}"]], doGenerateSubmoduleConfigurations: false, 
-                    extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: "${env.GIT_CREDENTIAL}", 
-                    url: "${JOB_GIT_URL}"]]])
+
+                    //-- Git checkout
+                    git branch: "${JOB_GIT_BRANCH}", changelog: false, credentialsId: "${env.JOB_GIT_CREDENTIAL}", 
+                    poll: false, url: "${JOB_GIT_URL}"
+
                 } catch (err) { 
                     echo "The Download GIT Code Stage failed"                                          
                 }
@@ -92,6 +94,9 @@ pipeline {
     // -- STAGE: SonarQube
     // ------------------------------------
     stage("SonarQube") {
+        when {
+                expression { return JOB_ENABLE_SONAR == "true" }
+        }
         steps {
             script {
                 try {

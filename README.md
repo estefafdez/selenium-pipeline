@@ -31,10 +31,11 @@ On the Jenkins job, you need to add several parameters by clicking the option **
 
 - __JOB_GIT_URL__: Code Repository URL (*String Parameter*)
 - __JOB_GIT_BRANCH__: Branch to download the project code to. You can add one or several branches (*Choice Parameter*)
-- __GIT_CREDENTIAL__: You need to define the user to download the project. You can fill this parameter using the users defined on your Jenkins System Credential. (*Credentials Parameter*)
+- __JOB_GIT_CREDENTIAL__: You need to define the user to download the project. You can fill this parameter using the users defined on your Jenkins System Credential. (*Credentials Parameter*)
 - __JOB_OS__: Operative System in which you are going to launch the Tests. You can add several OS such as Windows, Linux or MacOSX (*Choice Parameter*). 
 - __JOB_BROWSER__: Browser in which you are going to launch the Tests. You can add several Browsers, such as Firefox, Internet Explorer or Chrome (*Choice Parameter*)
 - __JOB_SELENIUM_SUITE__: Name of the Test Suite to execute. You can add several test suites, for example acceptance or regression. (*Choice Parameter*)
+- __JOB_ENABLE_SONAR__: Variable to define if the code could be analyzed by Sonarqube. The Sonar Server should be defined on the POM. (*Boolean Parameter*)
 
 ## Configure the pipeline section.
 
