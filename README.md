@@ -14,7 +14,6 @@ Also, you need to review the pipeline and check the path of the following variab
 - __JOB_FILES_DIRECTORY__: This parameter set the Directory of the files in the workspace. The current value is: "${workspace}"+"/src/test/resources/files".
 - __SUITE_NAME__: This parameter set the suite name and path. The current value is: "src/test/resources/suites/"+"${JOB_SELENIUM_SUITE}"+".xml". 
 - __Selenium Test Stage__: On this stage, if the test failed, you need to check the path where the screenshot are saved. The current value is: "**/screenshot/*.png".
-- __SonarQube Stage__: In order to be able to run Sonar on your test code, you need to define the Sonarqube server on your POM.xml. 
 
 # Configure your Jenkins Job. 
 
@@ -35,7 +34,6 @@ On the Jenkins job, you need to add several parameters by clicking the option **
 - __JOB_OS__: Operative System in which you are going to launch the Tests. You can add several OS such as Windows, Linux or MacOSX (*Choice Parameter*). 
 - __JOB_BROWSER__: Browser in which you are going to launch the Tests. You can add several Browsers, such as Firefox, Internet Explorer or Chrome (*Choice Parameter*)
 - __JOB_SELENIUM_SUITE__: Name of the Test Suite to execute. You can add several test suites, for example acceptance or regression. (*Choice Parameter*)
-- __JOB_ENABLE_SONAR__: Variable to define if the code could be analyzed by Sonarqube. The Sonar Server should be defined on the POM. (*Boolean Parameter*)
 
 ## Configure the pipeline section.
 

@@ -90,27 +90,6 @@ pipeline {
         }
     }
 
-    //------------------------------------
-    // -- STAGE: SonarQube
-    // ------------------------------------
-    stage("SonarQube") {
-        when {
-                expression { return JOB_ENABLE_SONAR == "true" }
-        }
-        steps {
-            script {
-                try {
-                    echo "Analizing the project with SonarQube."
-                    withSonarQubeEnv("Sonar Server") {
-                        sh "mvn sonar:sonar"
-                    }
-                } catch (err) { 
-                    echo "The SonarQube analysis failed"                                          
-                }
-            }  
-        }
-    }
-
     } // -- End stage
     // ----------------------------------------------
     // -- STAGE: Post Build actions
